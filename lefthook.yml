@@ -1,0 +1,12 @@
+output: false
+
+pre-commit:
+  commands:
+    nix:
+      glob: "*.{nix}"
+      run: nix fmt {staged_files}
+      stage_fixed: true
+    terraform:
+      glob: "*.{tf}"
+      run:  terraform fmt {staged_files}
+      stage_fixed: true
